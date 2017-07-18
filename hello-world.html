@@ -1,0 +1,146 @@
+<style type="text/css">
+	.button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 1%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 1%;
+		cursor: pointer;
+	}
+	
+	.code {
+		border: solid black 1px;
+		background-color: grey;
+		color: lightgreen;
+	}
+	
+div.tip {
+    border-bottom: 1px dashed;
+    text-decoration: none
+}
+div.tip:hover {
+    cursor: help;
+    position: relative
+}
+div.tip span {
+    display: none
+}
+div.tip:hover span {
+    border: #c0c0c0 1px dotted;
+    padding: .4%;
+    border-radius: 12px;
+    display: block;
+    z-index: 100;
+    background:  lightblue 100% 5%;
+    left: 30%;
+    margin: 10px;
+    width: 50%;
+    position: absolute;
+    bottom: 80%;
+    right: 20px;
+    text-align: center;
+    text-decoration: none
+}
+</style>
+
+<div id="atf">
+	<main>
+		<center>
+
+			<h2>I have really enjoyed using golang and plan on using it for a long time.
+
+				<br><br> My life every day has been filled with joy from Go.
+			</h2>
+
+			<h3>Lets get the ball rolling easily.<br> You want a server? sure as easy as pie.
+			</h3>
+
+
+		</center>
+		<h3>building a webserver is easy</h3>
+		
+<div class="tip"><pre class="code"><code>
+package main
+
+</code></pre>
+<span>NAME FOR THE PACKAGE</span>
+</div>
+
+
+<div class="tip"><pre class="code"><code>
+	//if its a third party run "go get package name"
+import ( 
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
+)</code></pre>
+<span>IMPORTS FOR "PACKAGE" CORE/THIRD PARTY</span>
+</div>
+
+<div class="tip"><pre class="code"><code>
+var temps *template.Template 
+
+</code></pre>
+<span>VARIABLE "temps" TO STORE CORE TEMPLATE WITH A * POINTER TO IT</span>
+</div>
+
+<div class="tip"><pre class="code"><code>
+	//init for running first
+func init() {
+
+	temps = template.Must(template.ParseGlob("templates/*.html"))
+}
+
+</code></pre>
+<span>VARIABLE "temps" IS ALSO GETTING THE TEMPLATE METHOD TO PARSE FILES IN A FOLDER</span>
+</div>
+
+
+
+<div class="tip"><pre class="code"><code>
+	//required func main()
+func main() {
+
+	//basically different url segments and the methods you made
+	http.HandleFunc("/", index)
+	http.HandleFunc("/golang", golang)
+	http.HandleFunc("/linux", linux)
+	http.HandleFunc("/resources", resources)
+
+	//the server port you are using
+	http.ListenAndServe(":8080", nil)
+
+}
+
+</code></pre>
+<span>THE IMPORTED
+net/http "http" WITH ITS METHOD "HandleFunc()" <BR>
+THE "/" IS THE URL PATH, "index" IS THE EXCUTING METHOD 
+WHEN YOU GO TO THAT PATH
+</span>
+</div>
+
+
+
+<div class="tip"><pre class="code"><code>
+func index(res http.ResponseWriter, req *http.Request) {
+	//actual file
+	err := temps.ExecuteTemplate(res, "index.html", nil)
+	//checking err
+	if err != nil {
+		log.Fatalln("template didn't execute: ", err)
+	}
+}
+</code></pre>
+<span>FUNCTION "index" with a writer and response <br>
+ExecuteTemplate takes a response "and" an error type <br>
+so use it! to check for an error.
+</span>
+</div>
+	</main>
+</div>

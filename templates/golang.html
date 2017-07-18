@@ -1,0 +1,110 @@
+{{template "header"}}
+
+{{template "tutheader"}}
+<div id="atf">
+    <main style="width:90%; margin: 0 auto;">
+<center>
+
+<h2>I have really enjoyed using golang and 
+plan on using it for a long time. 
+
+<br><br>
+My life every day has been filled with joy from Go.
+</h2>
+
+<h3>Lets get the ball rolling easily.<br>
+
+You want a server? sure as easy as pie.
+</h3>
+<h3>But you should know a few things first</h3>
+</center>
+
+<ul style="margin: 0 auto; width:50%;">
+    <li><h4>It really depends on what system you are installing on</h4></li>
+    <li><h4>Your linux distro may have different folder structors and system names.</h4></li>
+    <li><h4>A good way to deal with this upfront is to lookup your distro and installing golang on it first.</h4></li>
+    <li><h4>If you have windows/Mac then this should be done through wizards but the essence of the $GOPATH/$GOROOT are unilateral.</h4></li>
+</ul>
+
+<h3>1. installing golang </h3>
+<div class="tip">
+<textarea wrap="off" style="width: 97%;">
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+</textarea>
+<span>This installs GVM which is just an easy way 
+to conrol versions of go without dirty work.
+</span>
+</div>
+
+<h3>2. switching directories </h3>
+<div class="tip">
+<textarea wrap="off" style="width: 97%;">
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+</textarea>
+<span>switches to the directory of gvm
+</span>
+</div>
+
+<h3>3. checking your gvm </h3>
+<div class="tip">
+<textarea wrap="off" style="width: 97%;">gvm version</textarea>
+<span>checks what version and where it was installed.
+</span>
+</div>
+
+<h3>4. choose version </h3>
+<div class="tip">
+<textarea wrap="off" style="width: 97%;">sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install curl git mercurial make binutils bison gcc build-essential
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+exit
+gvm install go1.4
+gvm use go1.4 --default
+gvm install go1.5.1
+gvm use go1.5.1 --default
+</textarea>
+<span>check the version you want by running gvm listall
+</span>
+</div>
+
+<h3>5. then use it </h3>
+<div class="tip">
+<textarea wrap="off" style="width: 97%;">gvm use go1.4</textarea>
+<span>you can run go version to test it
+</span>
+</div>
+
+<h3>6. Setting up your GOPATH and GOROOT</h3>
+<div class="tip">
+<textarea wrap="off" style="width: 97%;">
+vnano ~/.bashrc
+# for go programming
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/Documents/goworkspace/"
+export PATH="$HOME/Documents/goworkspace/bin:$PATH"
+
+#FOR GO APP ENGINE
+export PATH="/usr/local/go_appengine:$PATH"
+</textarea>
+<span>run "nano ~/.bashrc" and then setup your vars
+</span>
+</div>
+
+<h3>7. Install goswitch</h3>
+<div class="tip">
+<textarea wrap="off" style="width: 97%;">
+directions here - https://github.com/iyobo/goswitch</textarea>
+
+<span>Go vars are usually static this makes them dynamic
+starting projects in directories as easy as source goswitch.sh
+</span>
+</div>
+
+<h2>All done? Great! now jump into code</h2>
+ <center><a href="/signup" class="button"><h2>Lets Go!</h2></a>
+</center>
+   </main>
+</div>
+
+{{template "footer"}}

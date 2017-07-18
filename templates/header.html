@@ -1,0 +1,87 @@
+{{define "header"}}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new</title>
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+<style type="text/css">
+ 	.button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 1%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 1%;
+		cursor: pointer;
+	}
+	.gobutton{
+	   	background-color: #73c7da;
+		border: none;
+		color: white;
+		padding: 1%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 1%;
+		cursor: pointer; 
+	}
+	.comment{
+	    color:#69b5c6;
+	    font-weight: 700;
+	}
+	.code {
+		border: solid black 1px;
+		background-color: #ffd;
+		color: #6cb586;
+	}
+	textarea{
+	    background: #ffffdd;
+	    height:100px;
+	    
+	}
+div.tip {
+    border-bottom: 1px dashed;
+    text-decoration: none
+}
+div.tip:hover {
+    cursor: help;
+    position: relative
+}
+div.tip span {
+    display: none
+}
+div.tip:hover span {
+    border: #c0c0c0 1px dotted;
+    padding: .4%;
+    border-radius: 12px;
+    display: block;
+    z-index: 100;
+    background:  lightblue 100% 5%;
+    left: 30%;
+    margin: 10px;
+    width: 50%;
+    position: absolute;
+    bottom: 80%;
+    right: 20px;
+    text-align: center;
+    text-decoration: none
+}
+</style>
+<header>
+    <nav id="head">
+      
+        <a href="/golang" class="button">Golang Tut</a>
+        <a href="/gocli" class="button">Go cli</a>
+        <a href="/gohelpfuls" class="button">Go helpfuls</a>
+        <a href="/linux" class="button">linux</a>
+        <a href="/resources" class="button">resources</a>
+    </nav>
+  
+</header>
+{{end}}

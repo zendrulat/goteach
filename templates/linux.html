@@ -1,0 +1,103 @@
+{{template "header"}}
+
+
+<div id="atf">
+    <main style="width:90%; margin: 0 auto;">
+<center>
+
+<h2>linux my favorite past time.
+<br><br>
+Installing, PPA's, and cli commands
+</h2>
+</center>
+
+<h3>Linux apps</h3>
+<h3>1. pianobar pandora in the browser </h3>
+<div class="tip"><pre class="code"><code>
+sudo apt-get update
+sudo apt-get upgrade
+sudo rpi-update
+
+//then install
+sudo apt-get install pianobar
+
+
+//setup config
+cd ~/.config
+mkdir pianobar
+cd pianobar
+sudo nano config
+
+//enter this into the config but remember to change it to your username and password
+user = your@user.name
+password = password
+autostart_station = 123456
+event_command = /home/pi/.config/pianobar/scripts/eventcmd.sh
+fifo = /home/pi/.config/pianobar/ctl
+</code></pre>
+<span>low on resources and cross platform and remember to change your username and password
+</span>
+</div>
+
+
+
+
+
+<h3>1. installing Guake terminal </h3>
+<div class="tip"><pre class="code"><code>
+sudo apt-get update
+apt-get install guake
+
+</code></pre>
+<span>Its drop down, quick command, and customizable.
+</span>
+</div>
+
+
+
+
+
+
+<h3>Basic Linux command line commands</h3>
+
+<div class="tip"><pre class="code"><code>
+ls //for listing sources in the directory
+
+cd //entering directories
+
+touch //opening a file
+
+mkdir //creating folder
+
+pwd //displaying current directory 
+
+clear //to clear the terminal
+
+up arrow // for repeating a command 
+
+bash //running .sh files
+
+find //finding a file 
+
+rm name //removing file 
+
+cp file1 file2 //Copy file1 to file2
+
+top //displaying resources
+
+ctr + c //stop process
+</code></pre>
+<span>Just some commands
+</span>
+</div>
+
+
+
+
+
+
+
+   </main>
+</div>
+
+{{template "footer"}}

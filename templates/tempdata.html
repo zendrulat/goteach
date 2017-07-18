@@ -1,0 +1,142 @@
+{{template "header"}}
+{{template "tutheader"}}
+<div id="atf">
+    <main style="width:90%; margin: 0 auto;">
+       <center>
+        <h1>Passing data/files around templates</h1>
+
+        <h3>1. templating </h3></center>
+<div class="tip"><pre class="code"><code>
+<div class="comment">
+//outside of func main()
+//you have your template init.</div>
+var tpl *template.Template
+
+func init() { 
+   <div class="comment"> 
+   //grab all files inside your templates file.</div>
+	temp = template.Must(template.ParseGlob("templates/*.html"))
+}
+  <div class="comment">   
+// you have your writer/response method</div>
+func index(res http.ResponseWriter, req *http.Request) {
+	
+	//actual file
+	err := temp.ExecuteTemplate(res, "index.html", nil)
+	if err != nil {
+		log.Fatalln("template didn't execute: ", err)
+	}
+}
+
+</code></pre>
+<span>Inside your main.go file
+</span>
+</div>
+
+
+<h3>inside your template files</h3>
+<div class="tip"><pre class="code"><code>
+<div class="comment"> 
+//inside your header.html file
+//remove the single ' inbetween the two {'s </div>
+
+ 
+<xmp>
+    {'{ define "header" }'}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new</title>
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+
+<header>
+    <nav>
+      
+        <a href="/golang" class="button">Golang Tut</a>
+        <a href="/gocli" class="button">Go cli</a>
+        <a href="/linux" class="button">linux</a>
+        <a href="/resources" class="button">resources</a>
+    </nav>
+  
+</header>
+{'{ end }'}
+</xmp>
+
+
+</code></pre>
+<span>Inside your header.html file <br>because this is built in a template please remove the single ' inbetween the two {'s
+</span>
+</div>
+            
+<h3>inside your footer.html</h3>
+<div class="tip"><pre class="code"><code>
+<xmp>
+{'{define "footer"}'}
+</body>
+</html>
+{'{end}'}
+</xmp>
+</code></pre>
+<span>Inside your footer.html file <br>because this is built in a template please remove ' between {
+</span>
+</div>
+        
+<h3>inside your middle.html</h3>
+<div class="tip"><pre class="code"><code>
+<xmp>
+{'{template "header"}'}
+
+//middle content with carrying the variable into the template
+hi, how are you {'{.}'}
+
+
+{'{template "footer"}'}
+</xmp>
+</code></pre>
+<span>Inside your footer.html file <br>because this is built in a template please remove ' between {
+</span>
+</div>
+
+
+
+
+
+
+       <h3>2. passing a variable </h3>
+<div class="tip"><pre class="code"><code>
+<div class="comment"> 
+//inside your handle function you initialize your var</div>
+func index(res http.ResponseWriter, req *http.Request) {
+	//could be an array or variable
+	var arr = [3]string{"a", "b", "c"}
+	var newvars = "bob"
+	
+<div class="comment"> 
+//actual file with the (newvar)</div>
+	err := tpl.ExecuteTemplate(res, "index.html", newvars)
+	if err != nil {
+		log.Fatalln("template didn't execute: ", err)
+	}
+}
+
+</code></pre>
+<span>The newvar could be arr as well
+</span>
+</div>
+       
+<h3>You should get the following as is</h3> 
+<div>hi, how are you bob</div>
+
+       
+       
+        
+    </main>
+</div>
+
+
+
+
+
+{{template "footer"}}

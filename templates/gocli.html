@@ -1,0 +1,79 @@
+
+{{template "header"}}
+
+<div id="atf">
+    <main style="width:90%; margin: 0 auto;">
+       <center>
+        <h1>Here are golang commands</h1>
+        
+        <h2>To run a go program there a few different ways</h2>
+</center>
+<h3>1. Go Run </h3>
+<div class="tip"><pre class="code"><code>
+go run main.go
+
+</code></pre>
+<span>simply runs the program
+</span>
+</div>
+
+<h3>2. Go build </h3>
+<div class="tip"><pre class="code"><code>
+go build main.go
+
+</code></pre>
+<span>Builds out the folders
+</span>
+</div>   
+    
+<h3>3. Go install </h3>
+<div class="tip"><pre class="code"><code>
+go install main.go
+
+</code></pre>
+<span>makes an excutable binary
+</span>
+</div> 
+
+<h3>4. Go fmt </h3>
+<div class="tip"><pre class="code"><code>
+gofmt main.go
+
+</code></pre>
+<span>formats your code
+</span>
+</div>
+
+
+
+  <h2>For Go debugging</h2>  
+    
+    
+<h3>4. debugging </h3>
+<div class="tip"><pre class="code"><code>
+//get package
+go get github.com/mailgun/godebug
+
+//insert a breakpoint
+_ = "breakpoint"
+
+//then
+godebug run main.go
+
+//found at https://github.com/mailgun/godebug
+</code></pre>
+<span>the commands are easy <br>"n" for next "c" continue
+</span>
+</div> 
+      
+      
+      
+
+        </center>
+    </main>
+</div>
+
+
+
+{{template "footer"}}
+

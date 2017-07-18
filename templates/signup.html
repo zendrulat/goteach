@@ -1,0 +1,111 @@
+{{template "header"}}
+{{template "tutheader"}}
+
+
+<div id="atf">
+	<main style="width:90%; margin: 0 auto;">
+		<center>
+
+	<h3>building a webserver is easy</h3>
+
+		</center>
+		
+		
+<div class="tip"><pre class="code"><code>
+package main
+
+</code></pre>
+<span>NAME FOR THE PACKAGE</span>
+</div>
+
+
+<div class="tip"><pre class="code"><code>
+<div class="comment"> 
+//if its a third party run "go get package name"</div>
+import ( 
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
+)</code></pre>
+<span>IMPORTS FOR "PACKAGE" CORE/THIRD PARTY</span>
+</div>
+
+<div class="tip"><pre class="code"><code>
+var temps *template.Template 
+
+</code></pre>
+<span>VARIABLE "temps" TO STORE CORE TEMPLATE WITH A * POINTER TO IT</span>
+</div>
+
+<div class="tip"><pre class="code"><code>
+<div class="comment"> 
+//init for running first</div>
+func init() {
+
+	temps = template.Must(template.ParseGlob("templates/*.html"))
+}
+
+</code></pre>
+<span>VARIABLE "temps" IS ALSO GETTING THE TEMPLATE METHOD TO PARSE FILES IN A FOLDER</span>
+</div>
+
+
+
+<div class="tip"><pre class="code"><code>
+<div class="comment"> 
+//required func main()</div>
+func main() {
+
+<div class="comment"> 
+//basically different url segments and the methods you made</div>
+	http.HandleFunc("/", index)
+	http.HandleFunc("/golang", golang)
+	http.HandleFunc("/linux", linux)
+	http.HandleFunc("/resources", resources)
+
+	//the server port you are using
+	http.ListenAndServe(":8080", nil)
+
+}
+
+</code></pre>
+<span>THE IMPORTED
+net/http "http" WITH ITS METHOD "HandleFunc()" <BR>
+THE "/" IS THE URL PATH, "index" IS THE EXCUTING METHOD 
+WHEN YOU GO TO THAT PATH
+</span>
+</div>
+
+
+
+<div class="tip"><pre class="code"><code>
+func index(res http.ResponseWriter, req *http.Request) {
+<div class="comment"> 
+//actual file</div>
+	err := temps.ExecuteTemplate(res, "index.html", nil)
+	//checking err
+	if err != nil {
+		log.Fatalln("template didn't execute: ", err)
+	}
+}
+</code></pre>
+<span>FUNCTION "index" with a writer and response <br>
+ExecuteTemplate takes a response "and" an error type <br>
+so use it! to check for an error.
+</span>
+</div>
+
+<h2>All done? Great! now jump into templates</h2>
+ <center><a href="/tempdata" class="button"><h2>Lets Go!</h2></a>
+</center>
+
+
+
+
+
+	</main>
+</div>
+
+
+{{template "footer"}}
