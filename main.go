@@ -37,7 +37,7 @@ func main() {
 	http.HandleFunc("/linux", linux)
 	http.HandleFunc("/resources", resources)
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8181", nil)
 	var a = "whatever"
 	var b = 33
 	var c = []int{33, 55, 66}
@@ -129,4 +129,9 @@ func icheck(c interface{}) {
 	default:
 		//	fmt.Println("default", "[1:]", c[1:], "[:1]", c[:1], c)
 	}
+}
+
+type User struct {
+	Name  string `form:text,valid:required`
+	Email string `form:text,valid:required`
 }
